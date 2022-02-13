@@ -1,12 +1,16 @@
 <div align="center">
 
-![Kiku](docs/d2vs.png)
+![d2vs](docs/d2vs.png)
 
 </div>
 
 
+# what is this
 
-## installation
+diablo 2 vision system is a library to assist with the automation of d2, using only pixels, keyboard and mouse
+
+
+# installation
 
 ```bash
 $ pip install d2vs
@@ -37,16 +41,18 @@ from PIL import Image
 # Initiate OCR
 ocr = OCR()
 
-# Load an image
-image_rgb_data = np.asarray(Image.open("586_gold.png"), dtype='uint8')
+
+# Load an Image
+img = Image.open("586_gold.png")
 
 # Scan the image
-bounds, text, item_type = ocr.read(image_rgb_data)
+bounds, text, item_type = ocr.read(img)
 
-# What do we have to work with?
-print(bounds)
+# Print out the data for demo purposes
+top_left, top_right, bottom_right, bottom_left = bounds
+print(top_left, top_right, bottom_right, bottom_left)
 # ([2, 2], [158, 2], [158, 32], [2, 32])
-# which are top_left, top_right, bottom_right, bottom_left
+
 
 print(text)
 # '586 Gold'
@@ -64,6 +70,20 @@ print(item_type)
  - Pick it for identified items/gambling/etc.
  - Facilitate complete d2 bot from lvl 1 to 99
 
+<div align="center">
+  
+![image](https://user-images.githubusercontent.com/2185159/142713867-b60e6dd6-08d9-4e55-862e-dba55cffff67.png)
+
+
+  _an example map reading from d2vs of black marsh_
+  
+![image](https://user-images.githubusercontent.com/2185159/144722467-5fdc4eb4-8a1a-4c96-b280-b818a6c24d27.png)
+
+
+  _nodes for the static map Harrogath_
+  
+</div>
+
 # development
 
 ## setup
@@ -77,11 +97,4 @@ $ pip install -r requirements.dev.txt
 
 ```bash
 $ pytest
-```
-
-## distributing
-
-```bash
-$ python setup.py sdist bdist_wheel
-$ twine upload dist/*
 ```
