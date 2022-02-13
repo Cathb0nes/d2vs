@@ -17,7 +17,7 @@ $ pip install d2vs
 ```
 
 _NOTE: this can run via CPU, but via GPU is far superior. You must install CUDA and the appropriate python jazz
-to get that working, for me with CUDA10.1:_
+to get that all going. This worked for me with CUDA10.1:_
 
 ```bash
 $ conda install torch torchvision cudatoolkit=10.1 -c pytorch
@@ -41,6 +41,7 @@ from PIL import Image
 # Initiate OCR
 ocr = OCR()
 
+
 # Load an Image
 img = Image.open("586_gold.png")
 
@@ -52,6 +53,7 @@ top_left, top_right, bottom_right, bottom_left = bounds
 print(top_left, top_right, bottom_right, bottom_left)
 # ([2, 2], [158, 2], [158, 32], [2, 32])
 
+
 print(text)
 # '586 Gold'
 
@@ -61,13 +63,12 @@ print(item_type)
 
 # project goals
 
- - Have fun automating single player! Not for profit
- - OCR with near 100% accuracy
- - Visually determine where you are in game, area level and world coordinate system
- - Click from world coords to screen coords
+ - ~~Have fun automating single player! Not for profit~~
+ - ~~OCR with near 100% accuracy~~
+ - ~~Visually determine where you are in game and use that for navigation~~
  - Path through unexplored areas to a goal
+ - Pick it for identified items/gambling/etc.
  - Facilitate complete d2 bot from lvl 1 to 99
- - Pick it
 
 <div align="center">
   
